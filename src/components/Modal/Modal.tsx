@@ -35,8 +35,17 @@ const Modal = ({ isOpen, setIsOpen, pages }: ModalProps) => {
       age,
     };
     localStorage.setItem("userData", JSON.stringify(userData));
-    setIsOpen(false);
+    resetModal();
   };
+  
+  const resetModal = () => {
+    setIsOpen(false);
+    setPageNumber(0);
+    setFirstName("");
+    setLastName("");
+    setAge(0);
+    setIsPageValid(false);
+  }
 
   if (!isOpen) return null;
 
