@@ -8,7 +8,7 @@ interface ModalProps {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   pages: JSX.Element[];
 }
-const Modal = ({ pages, isOpen }: ModalProps) => {
+const Modal = ({ isOpen, setIsOpen, pages }: ModalProps) => {
   const [pageNumber, setPageNumber] = useState<number>(0);
 
   const [firstName, setFirstName] = useState<string>("");
@@ -35,6 +35,7 @@ const Modal = ({ pages, isOpen }: ModalProps) => {
       age,
     };
     localStorage.setItem("userData", JSON.stringify(userData));
+    setIsOpen(false);
   };
 
   if (!isOpen) return null;
